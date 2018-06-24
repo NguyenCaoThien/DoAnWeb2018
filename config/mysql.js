@@ -1,0 +1,13 @@
+var mysql = require('mysql')
+
+var connection = mysql.createConnection({
+	host: 'localhost',
+	user: 'root',
+	password: '',
+	database: 'bookonline',
+	insecureAuth : true,
+	multipleStatements: true
+});
+
+
+module.exports = connection;
