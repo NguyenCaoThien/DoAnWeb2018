@@ -93,6 +93,8 @@ app.listen(3000, (err) => {
 	if(err)
 		console.log(err);
 	else
-		console.log("Run at port 3000");
+		console.log("Runing at port 3000");
 })
+
+
 

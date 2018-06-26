@@ -271,25 +271,7 @@ UNLOCK TABLES;
 -- Table structure for table `quanly`
 --
 
-DROP TABLE IF EXISTS `quanly`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `quanly` (
-  `idQuanLy` int(11) NOT NULL AUTO_INCREMENT,
-  `hoTenQL` varchar(100) DEFAULT NULL,
-  `capQL` int(11) DEFAULT NULL,
-  PRIMARY KEY (`idQuanLy`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `quanly`
---
-
-LOCK TABLES `quanly` WRITE;
-/*!40000 ALTER TABLE `quanly` DISABLE KEYS */;
-/*!40000 ALTER TABLE `quanly` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `sessions`

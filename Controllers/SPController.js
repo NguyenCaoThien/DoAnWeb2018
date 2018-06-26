@@ -1,6 +1,4 @@
-/**
- * Created by tutrinh on 5/11/18.
- */
+
 var express = require('express');
 var SPRePo = require('../repos/SPRePo');
 
