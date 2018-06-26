@@ -42,12 +42,12 @@ router.get('/don-hang', restrict, (req, res) => {
 router.post('/theloai', (req, res) => {
     categoryRepo.updateLoai(req.body.idLoai, req.body.tenLoai).then(rows => {
         categoryRepo.loadAllKind().then(rows => {
-            var vm = {
+            var vmn = {
                 showMsg: true,
                 Msg: 'Cập nhật thành công!',
                 theloai: rows
             };
-            res.render('manager/qly-loaisp', vm);
+            res.render('manager/qly-loaisp', vmn);
         })
     });
 
