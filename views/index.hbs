@@ -1,0 +1,286 @@
+<div class="container"style="width: 120%">
+    <div class="container-banner-img">
+        <img src="img/bookBanner.jpg" style="margin-left: 7%;width: 82%;position: relative;top: 20px;">
+    </div>
+   
+
+</div>
+
+<div class="body-outer fluid fluid-nomargin container clearfix ">
+
+    <div class="primary-outer">
+        <div class="content-block clearfix">
+            <div class="container-banner-img">
+                <img src="img/spnb.jpg" style="width: 80%;margin-top: 15px;margin-bottom: -10px;margin-left: 80px">
+            </div>
+            <div class="content-block-inner home-block home-content-slider grid12">
+
+                <div class="content-block clearfix mt20 mb0 single-related-post">
+                    <div class="content-block-inner home-block category-content-slider">
+                        <div class="block-inner-bar block-inner-tab-outer clearfix">
+                            <ul class="block-inner-tab float-left home-aj-tab">
+                                <li class="current">
+                                    <a rel="nofollow" href="javascript:void(0);" data-container="#home_slider_book_new_outer,#home_slider_book_new_control" style="font-size: 22px;color:orangered;margin-left: 10px">Top 10 sản phẩm mới nhất</a>
+                                </li>
+                            </ul>
+                            <div id="home_slider_book_new_control" class="block-slider-control float-right mr5" style="display: block;">
+                                <a id="home_slider_book_new_control_prev" rel="nofollow" href="javascript:void(0);" class="cachep-book-lib-prev prev" style="display: inline;">
+                                    <i class="fa fa-angle-left pre"></i>
+                                </a>
+                                <a id="home_slider_book_new_control_next" rel="nofollow" href="javascript:void(0);" class="cachep-book-lib-next next" style="display: inline;">
+                                    <i class="fa fa-angle-right nex"></i>
+                                </a>
+                            </div>
+                            <div class="bar-more-button float-right">
+                                <!--<a href="http://cachep.vn/danh-muc/sach-quoc-van/" rel="nofollow">Xem tất cả</a>-->
+                            </div>
+                        </div>
+
+                        <div id="home_slider_book_new_outer" class="block-inner-content clearfix" style="width: 980px; margin: auto; display: block;margin-left: 70px">
+                            <div id="owl-demo" class="owl-cachep-book-lib ">
+
+                                {{#each newBook}}
+                                <div class="item">
+                                    <li class="item-outer">
+                                        <a class="item-thumb" href="sample_product/?id={{idSach}}" rel="nofollow">
+                                            <img width="200" height="280" src="{{hinhAnh}}" class="attachment-thumbnail-rectangle wp-post-image" alt="nhumuadongroixuong">
+                                            <span class="item-percent-bubble">-10%</span>
+                                        </a>
+                                        <div class="item-meta-outer">
+                                            <h3 class="item-title">
+                                                <a href="sample_product/?id={{idSach}}">{{ten_sach}}</a>
+                                            </h3>
+                                            <em class="item-author">{{tac_gia}}</em>
+                                            <p class="item-price">
+                                                <strong>{{number_format giaBan}}
+                                                    <u>đ</u>
+                                                </strong>
+                                                <small>{{number_format giaBan}}
+                                                    <u>đ</u>
+                                                </small>
+                                            </p>
+                                        </div>
+                                    </li>
+                                </div>
+
+                                {{/each}}
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- book -->
+            </div>
+
+
+
+            <div class="content-block-inner home-block home-content-slider grid12">
+                <div class="content-block clearfix mt20 mb0 single-related-post">
+                    <div class="content-block-inner home-block category-content-slider">
+                        <div class="block-inner-bar block-inner-tab-outer clearfix">
+                            <ul class="block-inner-tab float-left home-aj-tab">
+                                <li class="current">
+                                    <a rel="nofollow" href="javascript:void(0);" data-container="#home_slider_book_new_outer,#home_slider_book_new_control" style="font-size: 22px;color:dodgerblue;margin-left: 10px">Top 10 sản phẩm bán chạy nhất</a>
+                                </li>
+                            </ul>
+                            <div id="home_slider_book_new_control" class="block-slider-control float-right mr5" style="display: block;">
+                                <a id="home_slider_book_new_control_prev" rel="nofollow" href="javascript:void(0);" class="cachep-book-lib-prev1 prev" style="display: inline;margin-left: 50px">
+                                    <i class="fa fa-angle-left pre"></i>
+                                </a>
+                                <a id="home_slider_book_new_control_next" rel="nofollow" href="javascript:void(0);" class="cachep-book-lib-next1 next" style="display: inline;">
+                                    <i class="fa fa-angle-right nex"></i>
+                                </a>
+                            </div>
+                            <div class="bar-more-button float-right">
+                            </div>
+                        </div>
+
+                        <div id="home_slider_book_new_outer" class="block-inner-content clearfix" style="width: 980px; margin: auto; display: block;;margin-left: 70px">
+                            <div id="owl-demo" class="owl-cachep-book-lib1 ">
+
+                                {{#each bestSaleBook}}
+                                <div class="item">
+                                    <li class="item-outer">
+                                        <a class="item-thumb" href="sample_product/?id={{idSach}}" rel="nofollow">
+                                            <img width="200" height="280" src="{{hinhAnh}}" class="attachment-thumbnail-rectangle wp-post-image" alt="benkiadoi">
+                                            <span class="item-percent-bubble">-10%</span>
+                                        </a>
+                                        <div class="item-meta-outer">
+                                            <h3 class="item-title">{{ten_sach}}</h3>
+                                            <em class="item-author">{{tac_gia}}</em>
+                                            <p class="item-price">
+                                                <strong class="strong">{{number_format giaBan}}</strong>
+                                                <strong>
+                                                    <u>đ</u>
+                                                </strong>
+                                                <small>{{number_format giaBan}}
+                                                    <u>đ</u>
+                                                </small>
+                                            </p>
+                                        </div>
+                                    </li>
+                                </div>
+                                {{/each}} {{#each bestSaleBook}}
+                                <div class="item">
+                                    <li class="item-outer">
+                                        <a class="item-thumb" href="sample_product/?id={{idSach}}" rel="nofollow">
+                                            <img width="200" height="280" src="{{hinhAnh}}" class="attachment-thumbnail-rectangle wp-post-image" alt="benkiadoi">
+                                            <span class="item-percent-bubble">-10%</span>
+                                        </a>
+                                        <div class="item-meta-outer">
+                                            <h3 class="item-title">{{ten_sach}}</h3>
+                                            <em class="item-author">{{tac_gia}}</em>
+                                            <p class="item-price">
+                                                <strong class="strong">{{number_format giaBan}}</strong>
+                                                <strong>
+                                                    <u>đ</u>
+                                                </strong>
+                                                <small>{{number_format giaBan}} đ
+                                                    <u>đ</u>
+                                                </small>
+                                            </p>
+                                        </div>
+                                    </li>
+                                </div>
+                                {{/each}} {{#each bestSaleBook}}
+                                <div class="item">
+                                    <li class="item-outer">
+                                        <a class="item-thumb" href="sample_product/?id={{idSach}}" rel="nofollow">
+                                            <img width="200" height="280" src="{{hinhAnh}}" class="attachment-thumbnail-rectangle wp-post-image" alt="benkiadoi">
+                                            <span class="item-percent-bubble">-10%</span>
+                                        </a>
+                                        <div class="item-meta-outer">
+                                            <h3 class="item-title">{{ten_sach}}</h3>
+                                            <em class="item-author">{{tac_gia}}</em>
+                                            <p class="item-price">
+                                                <strong class="strong">{{number_format giaBan}}</strong>
+                                                <strong>
+                                                    <u>đ</u>
+                                                </strong>
+                                                <small>{{number_format giaBan}}
+                                                    <u>đ</u>
+                                                </small>
+                                            </p>
+                                        </div>
+                                    </li>
+                                </div>
+                                {{/each}}
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- book -->
+                </div>
+
+
+
+
+                <div class="content-block-inner home-block home-content-slider grid12">
+                    <div class="content-block clearfix mt20 mb0 single-related-post">
+                        <div class="content-block-inner home-block category-content-slider">
+                            <div class="block-inner-bar block-inner-tab-outer clearfix">
+                                <ul class="block-inner-tab float-left home-aj-tab">
+                                    <li class="current">
+                                        <a rel="nofollow" href="javascript:void(0);" data-container="#home_slider_book_new_outer,#home_slider_book_new_control" style="font-size: 22px;color:#0a8b1b;margin-left: 10px">Top 10 sản phẩm được xem nhiều nhất</a>
+                                    </li>
+                                </ul>
+                                <div id="home_slider_book_new_control" class="block-slider-control float-right mr5" style="display: block;">
+                                    <a id="home_slider_book_new_control_prev" rel="nofollow" href="javascript:void(0);" class="cachep-book-lib-prev2 prev" style="display: inline;">
+                                        <i class="fa fa-angle-left pre"></i>
+                                    </a>
+                                    <a id="home_slider_book_new_control_next" rel="nofollow" href="javascript:void(0);" class="cachep-book-lib-next2 next" style="display: inline;">
+                                        <i class="fa fa-angle-right nex"></i>
+                                    </a>
+                                </div>
+                                <div class="bar-more-button float-right">
+                                    <!--<a href="http://cachep.vn/danh-muc/sach-quoc-van/" rel="nofollow">Xem tất cả</a>-->
+                                </div>
+                            </div>
+
+                            <div id="home_slider_book_new_outer" class="block-inner-content clearfix" style="width: 980px; margin: auto; display: block;margin-left: 70px;">
+                                <div id="owl-demo" class="owl-cachep-book-lib2 ">
+
+                                    {{#each byViews}}
+                                    <div class="item">
+                                        <li class="item-outer">
+                                            <a class="item-thumb" href="sample_product/?id={{idSach}}" rel="nofollow">
+                                                <img width="200" height="280" src="{{hinhAnh}}" class="attachment-thumbnail-rectangle wp-post-image" alt="ngayayviaimadoithay">
+                                                <span class="item-percent-bubble">-10%</span>
+                                            </a>
+                                            <div class="item-meta-outer">
+                                                <h3 class="item-title">{{ten_sach}}</h3>
+                                                <em class="item-author">{{tac_gia}}</em>
+                                                <p class="item-price">
+                                                    <strong class="strong">{{number_format giaBan}}</strong>
+                                                    <strong>
+                                                        <u>đ</u>
+                                                    </strong>
+                                                    <small>{{number_format giaBan}}
+                                                        <u>đ</u>
+                                                    </small>
+                                                </p>
+
+                                            </div>
+                                        </li>
+                                    </div>
+                                    {{/each}} {{#each byViews}}
+                                    <div class="item">
+                                        <li class="item-outer">
+                                            <a class="item-thumb" href="sample_product/?id={{idSach}}" rel="nofollow">
+                                                <img width="200" height="280" src="{{hinhAnh}}" class="attachment-thumbnail-rectangle wp-post-image" alt="ngayayviaimadoithay">
+                                                <span class="item-percent-bubble">-10%</span>
+                                            </a>
+                                            <div class="item-meta-outer">
+                                                <h3 class="item-title">{{ten_sach}}</h3>
+                                                <em class="item-author">{{tac_gia}}</em>
+                                                <p class="item-price">
+                                                    <strong class="strong">{{number_format giaBan}}</strong>
+                                                    <strong>
+                                                        <u>đ</u>
+                                                    </strong>
+                                                    <small>{{number_format giaBan}}
+                                                        <u>đ</u>
+                                                    </small>
+                                                </p>
+
+                                            </div>
+                                        </li>
+                                    </div>
+                                    {{/each}} {{#each byViews}}
+                                    <div class="item">
+                                        <li class="item-outer">
+                                            <a class="item-thumb" href="sample_product/?id={{idSach}}" rel="nofollow">
+                                                <img width="200" height="280" src="{{hinhAnh}}" class="attachment-thumbnail-rectangle wp-post-image" alt="ngayayviaimadoithay">
+                                                <span class="item-percent-bubble">-10%</span>
+                                            </a>
+                                            <div class="item-meta-outer">
+                                                <h3 class="item-title">{{ten_sach}}</h3>
+                                                <em class="item-author">{{tac_gia}}</em>
+                                                <p class="item-price">
+                                                    <strong class="strong">{{number_format giaBan}}</strong>
+                                                    <strong>
+                                                        <u>đ</u>
+                                                    </strong>
+                                                    <small>{{number_format giaBan}}
+                                                        <u>đ</u>
+                                                    </small>
+                                                </p>
+
+                                            </div>
+                                        </li>
+                                    </div>
+                                    {{/each}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- book -->
+                </div>
+
+
+
+            </div>
+
+        </div>
+    </div>
+</div>

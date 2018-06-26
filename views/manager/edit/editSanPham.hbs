@@ -1,0 +1,77 @@
+
+<form action="" method="POST" role="form">
+    <div class="mod-login">
+        <div class="mod-login-col1" style="width: 350px;">
+            <div class="mod-input">
+                <label style="font-size: 14px">Mã sách</label>
+                <input type="text" placeholder="Nhập giá sách" data-meta="Field" name="idSach" value="{{Book.idSach}}">
+                <b></b>
+                <span></span>
+
+            </div>
+            <div class="mod-input">
+                <label style="font-size: 14px">Tên sách</label>
+                <input type="text" placeholder="Nhập tên sách" data-meta="Field" value="{{Book.ten_sach}}" name="ten_sach">
+                <b></b>
+                <span></span>
+            </div>
+
+            <div class="mod-input">
+                <label style="font-size: 14px">Nhà xuất bản</label>
+                <select id="idNhaSX"  name="idNhaSX" class="form-control" style="border: 1px solid #5bb7c3;border-radius: 36px;font-size: 14px;height: 40px;">
+                    <option value="{{Book.idNhaSX}}" hidden="hidden" selected>{{Book.tenNhaSX}}</option>
+                    {{#each nxb}}
+                    <option value="{{idNhaSX}}">{{tenNhaSX}}</option>                    
+                    {{/each}}
+                    
+                </select>
+
+            </div>
+
+        </div>
+        <div class="mod-login-col2" style="width: 350px;">
+            <div class="mod-input">
+                <label style="font-size: 14px">Giá sách</label>
+                <input type="text" placeholder="Nhập giá sách" data-meta="Field" name="giaBan" value="{{Book.giaBan}}">
+                <b></b>
+                <span></span>
+
+            </div>
+            <div class="mod-input">
+                <label style="font-size: 14px">Tác giả</label>
+                <input type="text" placeholder="Nhập tên tác giả" data-meta="Field" value="{{Book.tac_gia}}" name="tac_gia">
+                <b></b>
+                <span></span>
+
+            </div>
+
+            <div class="mod-input">
+                <label style="font-size: 14px">Loại sách</label>
+                <select id="idLoai" NAME="idLoai" class="form-control" style="border: 1px solid #5bb7c3;border-radius: 16px;font-size: 14px;height: 40px;">
+                    <option  value="{{Book.idLoai}}" hidden="hidden" selected>{{Book.tenLoai}}</option>
+                    {{#each loai}}
+                    <option value="{{idLoai}}">{{tenLoai}}</option>
+                    {{/each}}
+
+
+
+
+                </select>
+
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+    <div class="form-row subscribe-outer" style="width: 18%;margin-left: 600px;margin-top: -40px">
+        <button type="submit" class="button-default ygradient1 ">CẬP NHẬT</button>
+    </div>
+
+    <!--<button type="submit" class="btn btn-primary">-->
+    <!--<span class="glyphicon glyphicon-save"></span>-->
+    <!--Update-->
+    <!--</button>-->
+</form>

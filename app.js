@@ -1,94 +1,98 @@
-var http = require('http');
-var createError = require('http-errors');
 var express = require('express');
+var bodyParser = require('body-parser');
 var exphbs = require('express-handlebars');
 var express_handlebars_sections = require('express-handlebars-sections');
-var bodyParser = require('body-parser');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var flash = require('connect-flash');
-var passport = require('passport');
-var logger = require('morgan');
-var mysql = require('./config/mysql');
-var session = require('express-session')
-var app = express();
-var server = http.createServer(app);
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.engine('hbs', exphbs({
-    defaultLayout: 'main-user',
-    layoutsDir: 'views/layout',
-    helpers: {
-        section: express_handlebars_sections()
-    }
-}));
-var Handlebars = require('handlebars');
-Handlebars.registerHelper('ifCond', function (v1, operator, v2, options) {
+var wnumb = require('wnumb');
 
-    switch (operator) {
-        case '==':
-            return (v1 == v2) ? options.fn(this) : options.inverse(this);
-        case '===':
-            return (v1 === v2) ? options.fn(this) : options.inverse(this);
-        case '!=':
-            return (v1 != v2) ? options.fn(this) : options.inverse(this);
-        case '!==':
-            return (v1 !== v2) ? options.fn(this) : options.inverse(this);
-        case '<':
-            return (v1 < v2) ? options.fn(this) : options.inverse(this);
-        case '<=':
-            return (v1 <= v2) ? options.fn(this) : options.inverse(this);
-        case '>':
-            return (v1 > v2) ? options.fn(this) : options.inverse(this);
-        case '>=':
-            return (v1 >= v2) ? options.fn(this) : options.inverse(this);
-        case '&&':
-            return (v1 && v2) ? options.fn(this) : options.inverse(this);
-        case '||':
-            return (v1 || v2) ? options.fn(this) : options.inverse(this);
-        default:
-            return options.inverse(this);
+var path = require('path');
+
+
+var handleLayoutMDW = require('./middle-wares/handleLayout'),
+    handle404MDW = require('./middle-wares/handle404'),
+    restrict = require('./middle-wares/restrict');
+
+var SPController = require('./Controllers/SPController');
+var HomeController = require('./Controllers/HomeController');
+var ProductController = require('./Controllers/ProductController');
+var accountController = require('./Controllers/accountController');
+var categoryController = require('./Controllers/categoryController');
+var cartController = require('./controllers/cartController');
+var managerController=require('./Controllers/managerController');
+var SearchController = require('./Controllers/SearchController');
+
+
+var app = express();
+var session = require('express-session');
+var MySQLStore = require('express-mysql-session')(session);
+
+//session
+var sessionStore = new MySQLStore({
+    host: '127.0.0.1',
+    port: 3306,
+    user: 'root',
+    password: '',
+    database: 'doanwebck',
+    createDatabaseTable: true,
+    schema: {
+        tableName: 'sessions',
+        columnNames: {
+            session_id: 'session_id',
+            expires: 'expires',
+            data: 'data'
+        }
     }
 });
-app.set('view engine', 'hbs');
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(bodyParser.json());
-
-
-require('./config/passport')(passport)
 app.use(session({
-    secret: '{secret}', 
-    name: 'session_id', 
-    saveUninitialized: true,
-     resave: true}));
-app.use(passport.initialize());
-app.use(passport.session());
-app.use(flash());
-require('./routes/index')(app, passport);
+    key: 'session_cookie_name',
+    secret: 'session_cookie_secret',
+    store: sessionStore,
+    resave: false,
+    saveUninitialized: false
+}));
 
-// catch 404 and forward to error handler
-//app.use(function(req, res, next) {
-  //next(createError(404));
-//});
-// error handler
 
-server.listen(3000, (err) => {
+
+
+
+app.engine('hbs', exphbs({
+    defaultLayout: 'main',
+    extname: 'hbs',
+    layoutsDir: 'views/_layouts',
+    helpers: {
+        section: express_handlebars_sections(),
+        number_format: n => {
+            var nf = wnumb({
+                thousand: '.'
+            });
+            return nf.to(n);
+        }
+    }
+}));
+app.set('view engine', 'hbs');
+app.set('views', path.join(__dirname, "views"));
+app.use(express.static(path.resolve(__dirname, 'public')));
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+    extended: false
+}));
+app.use(handleLayoutMDW);
+
+app.use('/', HomeController);
+app.use('/sample_product', ProductController);
+app.use('/SP', SPController);
+app.use('/manager',managerController);
+app.use('/account', accountController);
+app.use('/cart', restrict, cartController);
+app.use('/tim-kiem', categoryController);
+app.use('/tim-voi-key', SearchController);
+
+app.use(handle404MDW);
+
+app.listen(3000, (err) => {
 	if(err)
 		console.log(err);
 	else
 		console.log("Run at port 3000");
 })
 
-
-mysql.connect((err) => {
-	if(err)
-		console.log(err);
-	else
-		console.log('mysql connected');
-})
-
-//git
