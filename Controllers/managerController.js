@@ -145,7 +145,7 @@ router.get('/sanpham/delete', (req, res) => {
     var vm = {
         idSach: req.query.id
     };
-    res.render('manager/deleteSanPham', vm);
+    res.render('manager/delete/deleteSanPham', vm);
 });
 router.post('/sanpham/delete', (req, res) => {
 
